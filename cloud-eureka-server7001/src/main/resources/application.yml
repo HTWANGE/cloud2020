@@ -15,7 +15,7 @@ eureka:
       #设置与Eureka server交互的地址查询服务和注册服务都需要依赖这个地址
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       #eureka集群，相互注册，互相守望
-      defaultZone: http://eureka7002.com:7002/eureka/
+      defaultZone: http://eureka7002.com:7002/eureka/ #修改映射配置文件 -》 C:\Windows\System32\drivers\etc\hosts，避免服务重名
   server:
     #关闭自我保护机制，保证不可用服务被及时删除（默认为true，开启自我保护机制）
     enable-self-preservation: false

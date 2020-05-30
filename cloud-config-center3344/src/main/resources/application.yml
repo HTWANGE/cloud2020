@@ -1,0 +1,40 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center #注册进Eureka服务器的服务名
+  cloud:
+    config:
+      server:
+        git:
+          #GitHub上面的git仓库名字
+          uri: https://github.com/HTWANGE/springcloud-config.git
+          #搜索目录
+          search-paths:
+            - springcloud-config
+      #读取分支
+      label: master
+  #RabbitMQ相关配置
+  rabbitmq:
+    host: localhost
+    #rabbitmq通常要开放两个端口：5672和15672；其中5672是默认的接口调用的端口，15672是WEB管理页面访问的端口，所以5672是一定要开启，而15672根据需求选择打开。
+    port: 5672
+    username: guest
+    password: guest
+
+#服务将被注册到Eureka的地址
+eureka:
+  client:
+    service-url:
+      #集群版
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+#暴露监控端点
+management:
+  #暴露bus刷新配置的端点
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
+

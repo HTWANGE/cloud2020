@@ -16,7 +16,7 @@ public class MyLB implements LoadBalancer {
 
     private AtomicInteger atomicInteger = new AtomicInteger(0);
 
-    //使用了CAS自旋锁
+    //使用了CAS 加 自旋锁
     public final int getAndIncrement(){
         int current;
         int next;

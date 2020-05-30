@@ -5,7 +5,7 @@ spring:
   application:
     name: consul-provider-payment
 
-  #consul注册中心地址c
+  #consul注册中心地址
   cloud:
     consul:
       host: localhost
